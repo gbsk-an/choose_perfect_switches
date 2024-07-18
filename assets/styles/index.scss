@@ -1,0 +1,8 @@
+@import './modules/normalize.scss';
+@import './modules/fonts.scss';
+@import './modules/common.scss';
+
+/* stylelint-disable-next-line selector-id-pattern */
+#__nuxt {
+  width: 100%;
+}
