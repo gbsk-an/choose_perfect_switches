@@ -1,6 +1,6 @@
 <template>
   <div class="info-list">
-    <h2 class="info-list__title">There are three basic types of switches to choose from:</h2>
+    <h2 class="info-list__title">Существует три основных типа свитчей:</h2>
     <ul>
       <InfoListItem v-for="item in list" :key="item.id" v-bind="item" />
     </ul>
@@ -21,15 +21,25 @@ defineProps<Props>()
 $white: $WHITE;
 $yellow: $YELLOW;
 $black-2: $BLACK-SECOND;
+$gold: $GOLD;
 
 .info-list {
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+
+  @include tablet-desktop {
+    row-gap: 4rem;
+  }
+
+  @include mobile {
+    row-gap: 2rem;
+  }
 
   &__title {
-    font-family: EpilepsySans;
+    font-family: Compaq;
     line-height: 150%;
+    text-align: center;
+    text-shadow: $gold 0.15rem 0.25rem;
     @include adaptive-font(2.2, 1.6);
   }
 

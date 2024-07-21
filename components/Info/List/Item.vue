@@ -74,15 +74,17 @@ $gold: $GOLD;
 
   &__title {
     font-family: Compaq;
-    @include adaptive-font(2, 1.4);
     line-height: 140%;
+    text-align: center;
     text-shadow: $gold 0.15rem 0.25rem;
+    @include adaptive-font(2, 1.4);
   }
 
   &__text {
     font-family: EpilepsySans;
-    @include adaptive-font(2, 1.4);
     line-height: 140%;
+    text-align: justify;
+    @include adaptive-font(2, 1.4);
   }
 }
 </style>

@@ -1,12 +1,16 @@
 <template>
   <div class="info">
-    <div>
+    <div class="info-text">
       <p>
-        When choosing your switches, you only want the best. The problem is that there are many kinds of switches and
-        there’s no easy way to learn and compare them.
+        Выбор свитчей крайне важен, поскольку это влияет не только на результативность работы, но и комфорт при
+        использовании клавиатуры.
       </p>
-      <p>Luckily, I’ve done the research and created this test for you!</p>
-      <p>After you finish the test, you'll be able to choose the ones that are best for you.</p>
+      <p>
+        Проблема в том, что существует множество видов свитчей, поэтому довольно трудно решить какие именно подойдут
+        тебе.
+      </p>
+      <p>К счастью, я провела исследование и создала этот тест для тебя :)</p>
+      <p>После завершения теста вы узнаете какие свитчи лучше всего подходят именно вам.</p>
     </div>
     <InfoList :list="switchesInfo" />
   </div>
@@ -26,7 +30,7 @@ const switchesInfo = [
       alt: 'Keyboard typing'
     },
     title: 'Linear switches',
-    text: 'Linear switches are the best choice for gaming. These switches operate smoothly with no pushback or tactile feedback. Linear switches can provide a quiet clicking sound when they bottom out for no sound.'
+    text: 'Лучший выбор для игр. Эти свитчи работают плавно, без отдачи или тактильной обратной связи. Linear switches могут издавать тихий щелчок, когда клавиша достигает нижней точки, или вообще не издавать звука.'
   },
   {
     id: 2,
@@ -35,7 +39,7 @@ const switchesInfo = [
       alt: 'Girl and computer'
     },
     title: 'Tactile switches',
-    text: 'These switches are suitable for both typing and gaming. When you push down, you feel a distinct bump in the middle of the press. They usually aren’t silent, but the click isn’t as loud as a clicky switch.'
+    text: 'Эти свитчи подходят как для набора текста, так и для игр. При нажатии вы чувствуете отчетливый толчок в середине нажатия. Обычно они не являются бесшумными, но щелчок не такой громкий, как у кликающих Clicky switches.'
   },
   {
     id: 3,
@@ -44,7 +48,7 @@ const switchesInfo = [
       alt: 'Keyboard typing'
     },
     title: 'Clicky switches',
-    text: 'Clicky switches are great for typing. These are like tactile switches but make much more noise when they bottom out.'
+    text: 'Отлично подходят для набора текста. Они похожи на тактильные свитчи, но издают намного больше шума, когда клавиша достигает нижней точки.'
   }
 ]
 </script>
@@ -57,20 +61,28 @@ $black-2: $BLACK-SECOND;
 .info {
   display: flex;
   flex-direction: column;
-  row-gap: 4rem;
 
   @include tablet-desktop {
-    padding: 6rem;
+    padding: 20rem 6rem 10rem;
+    row-gap: 20rem;
   }
 
   @include mobile {
-    padding: 2rem 1.6rem 6rem;
+    padding: 10rem 1.6rem 6rem;
+    row-gap: 8rem;
+  }
+
+  &-text {
+    @include tablet-desktop {
+      margin: 0 10rem;
+    }
   }
 
   p {
-    font-family: EpilepsySans;
+    font-family: Compaq;
+    line-height: 150%;
+    text-align: center;
     @include adaptive-font(2, 1.4);
-    line-height: 140%;
   }
 }
 </style>

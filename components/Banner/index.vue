@@ -10,8 +10,8 @@
       :alt="`Слой фона ${index}`"
     />
     <div class="banner-content">
-      <h1 class="banner-content__title">Which mechanical keyboard&nbsp;switches<br />are best for you?</h1>
-      <v-button text="Start" @click="setQuestion(Question.QuestionType.COLOR)" />
+      <h1 class="banner-content__title">Какие свитчи для механической&nbsp;клавиатуры<br />подойдут именно вам?</h1>
+      <v-button text="Начать" @click="setQuestion(Question.QuestionType.COLOR)" />
     </div>
   </div>
 </template>
