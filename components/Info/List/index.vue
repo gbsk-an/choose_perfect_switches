@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import type { InfoList } from '@/types'
+import type { InfoList } from '@/types/index.ts'
 
 interface Props {
   list: InfoList.Model[]

@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import type { InfoList } from '@/types'
+import type { InfoList } from '@/types/index.ts'
 
 defineProps<InfoList.Model>()
 </script>

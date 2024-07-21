@@ -39,6 +39,7 @@ const onClick = () => {
 <style lang="scss" scoped>
 $black-2: $BLACK-SECOND;
 $yellow: $YELLOW;
+$white: $WHITE;
 
 .ui-button {
   width: fit-content;
@@ -48,8 +49,9 @@ $yellow: $YELLOW;
   background-color: $yellow;
   color: $black-2;
   font-family: Compaq;
+  line-height: 150%;
   text-transform: uppercase;
-  transition: all 500ms ease;
+  transition: all 300ms ease;
   @include adaptive-font(2, 1.6);
 
   @include desktop {
@@ -65,12 +67,14 @@ $yellow: $YELLOW;
 
     @include hover {
       &:hover {
-        background-color: darken($yellow, 10%);
+        background-color: $white;
+        transform: translateY(-0.3rem);
       }
     }
 
     &:focus {
-      background-color: darken($yellow, 10%);
+      background-color: $white;
+      transform: translateY(-0.3rem);
     }
   }
 

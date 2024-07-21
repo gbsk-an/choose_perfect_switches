@@ -1,17 +1,11 @@
 <template>
   <v-section class="section-start" :is-large="true">
-    <Banner />
+    <Banner title="Какие свитчи подойдут именно вам?" />
     <Info />
   </v-section>
 </template>
 
-<script lang="ts" setup></script>
-
 <style lang="scss" scoped>
-$white: $WHITE;
-$yellow: $YELLOW;
-$black-2: $BLACK-SECOND;
-
 .section-start {
   display: flex;
   flex-direction: column;

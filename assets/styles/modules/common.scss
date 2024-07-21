@@ -110,3 +110,13 @@ button {
     outline: none;
   }
 }
+
+.section-enter-active,
+.section-leave-active {
+  transition: opacity 0.4s;
+}
+
+.section-enter-active,
+.section-leave-to {
+  opacity: 0;
+}

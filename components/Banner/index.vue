@@ -10,19 +10,27 @@
       :alt="`Слой фона ${index}`"
     />
     <div class="banner-content">
-      <h1 class="banner-content__title">Какие свитчи для механической&nbsp;клавиатуры<br />подойдут именно вам?</h1>
-      <v-button text="Начать" @click="setQuestion(Question.QuestionType.COLOR)" />
+      <h1 class="banner-content__title" :class="{ large: isStartSection }" v-html="title" />
+      <v-button v-if="isStartSection" text="Начать" @click="setQuestion(Question.QuestionType.USAGE)" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onBeforeUnmount, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { onBeforeUnmount, onMounted, computed } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 import { filename } from 'pathe/utils'
 import useTestStore from '@/store/test.ts'
 import { Question } from '@/types/index.ts'
 
+interface Props {
+  title: string
+}
+
+defineProps<Props>()
+
+const { question } = storeToRefs(useTestStore())
 const { setQuestion } = useTestStore()
 
 const layersImage = ref<HTMLElement | null>(null)
@@ -50,6 +58,8 @@ const backgroundLayers = [
   }
 ]
 
+const isStartSection = computed(() => question.value === Question.QuestionType.START)
+
 const onWindowScroll = () => {
   if (!targetIsVisible.value) return
 
@@ -73,6 +83,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
+$yellow: $YELLOW;
 $black-2: $BLACK-SECOND;
 $blue-dark: $BLUE-DARK;
 
@@ -143,8 +154,44 @@ $blue-dark: $BLUE-DARK;
       text-align: center;
       text-shadow: $black-2 0.3rem 0.4rem;
       text-transform: uppercase;
-      @include adaptive-font(3, 1.6);
+
+      @include tablet-desktop {
+        overflow: hidden;
+        padding-right: 1rem;
+        border-right: 0.4rem solid $yellow;
+        animation: typing 3.5s steps(30, end), blink-caret 1.2s step-end infinite;
+        white-space: nowrap;
+      }
+
+      &:not(.large) {
+        @include adaptive-font(2.2, 1.6);
+      }
+
+      &.large {
+        @include adaptive-font(3, 1.6);
+      }
     }
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: $yellow;
   }
 }
 </style>
