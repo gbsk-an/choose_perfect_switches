@@ -5,7 +5,7 @@
       <div class="section-result__info-text">
         <p v-html="result.text" />
       </div>
-      <v-button text="Пройти заново" @click="clearTest()" />
+      <v-button text="Пройти заново" @click="backToStartPage" />
     </div>
   </v-section>
 </template>
@@ -16,6 +16,11 @@ import useTestStore from '@/store/test.ts'
 
 const { result } = storeToRefs(useTestStore())
 const { clearTest } = useTestStore()
+
+const backToStartPage = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+  clearTest()
+}
 </script>
 
 <style lang="scss" scoped>
