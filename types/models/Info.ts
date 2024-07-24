@@ -1,4 +1,4 @@
-export namespace InfoList {
+export namespace Info {
   export interface Model {
     id: number
     image: {

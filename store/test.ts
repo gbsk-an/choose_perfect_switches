@@ -7,6 +7,7 @@ export default defineStore('test-progress', () => {
   const { constants } = root.$configs
 
   const resultList = constants.result
+  const productsList = constants.products
 
   const question = ref<Question.QuestionType>(Question.QuestionType.START)
 
@@ -22,7 +23,7 @@ export default defineStore('test-progress', () => {
     design: ''
   })
 
-  const result = ref<Question.IResult>({ text: '', subtitle: '' })
+  const result = ref<Question.IResult>({ text: '', subtitle: '', products: null })
 
   const setResult = () => {
     const resultAnswersArr = Object.values(testData)
@@ -30,7 +31,11 @@ export default defineStore('test-progress', () => {
       .sort((a, b) => resultAnswersArr.filter((v) => v === a).length - resultAnswersArr.filter((v) => v === b).length)
       .pop()
 
-    result.value = resultList[topAnswer]
+    result.value = {
+      text: resultList[topAnswer].text,
+      subtitle: resultList[topAnswer].subtitle,
+      products: productsList[topAnswer]
+    }
   }
 
   const setAnswer = (key, value) => {
@@ -43,7 +48,7 @@ export default defineStore('test-progress', () => {
     testData.typing = ''
     testData.noise = ''
     testData.design = ''
-    result.value = { text: '', subtitle: '' }
+    result.value = { text: '', subtitle: '', products: null }
     setQuestion(Question.QuestionType.START)
   }
 

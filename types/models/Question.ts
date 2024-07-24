@@ -1,3 +1,5 @@
+import { Products } from '@/types/index.ts'
+
 export namespace Question {
   export interface IAnswer {
     id: string
@@ -26,5 +28,6 @@ export namespace Question {
   export interface IResult {
     subtitle: string
     text: string
+    products: Products.Model[] | null
   }
 }

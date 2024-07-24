@@ -1,23 +1,23 @@
 <template>
-  <li class="info-list-item">
-    <div class="info-list-item__image">
+  <li class="info-item">
+    <div class="info-item__image">
       <img :src="image.src" :alt="image.alt" />
     </div>
-    <span class="info-list-item__title" v-html="title" />
-    <p class="info-list-item__text" v-html="text" />
+    <span class="info-item__title" v-html="title" />
+    <p class="info-item__text" v-html="text" />
   </li>
 </template>
 
 <script setup lang="ts">
-import type { InfoList } from '@/types/index.ts'
+import type { Info } from '@/types/index.ts'
 
-defineProps<InfoList.Model>()
+defineProps<Info.Model>()
 </script>
 
 <style lang="scss" scoped>
 $gold: $GOLD;
 
-.info-list-item {
+.info-item {
   display: flex;
   flex-direction: column;
   row-gap: 1.4rem;
@@ -26,21 +26,21 @@ $gold: $GOLD;
     width: 33%;
 
     &:not(:nth-child(2n)) {
-      .info-list-item__image {
+      .info-item__image {
         height: 30rem;
       }
     }
 
     &:nth-child(2n) {
-      .info-list-item__title {
+      .info-item__title {
         order: 0;
       }
 
-      .info-list-item__text {
+      .info-item__text {
         order: 1;
       }
 
-      .info-list-item__image {
+      .info-item__image {
         height: 100%;
         order: 2;
       }
@@ -81,10 +81,10 @@ $gold: $GOLD;
   }
 
   &__text {
-    font-family: EpilepsySans;
+    font-family: Compaq;
+    font-size: 1.4rem;
     line-height: 140%;
     text-align: justify;
-    @include adaptive-font(2, 1.4);
   }
 }
 </style>

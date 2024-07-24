@@ -1,6 +1,7 @@
 export namespace Button {
   export enum Themes {
-    YELLOW = 'yellow'
+    YELLOW = 'yellow',
+    NO_BORDER = 'no-border'
   }
 
   export enum Types {

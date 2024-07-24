@@ -64,7 +64,7 @@ $black-2: $BLACK-SECOND;
 
   @include tablet-desktop {
     padding: 20rem 6rem 10rem;
-    row-gap: 20rem;
+    row-gap: 30rem;
   }
 
   @include mobile {

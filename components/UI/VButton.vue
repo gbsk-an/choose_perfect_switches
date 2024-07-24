@@ -4,6 +4,7 @@
     :type="type"
     :class="`ui-button ${themeClass}`.trim()"
     :disabled="disabled"
+    :aria-label="`Кнопка ${text}`"
     @click="onClick"
     v-html="text"
   />
@@ -21,7 +22,8 @@ const props = withDefaults(defineProps<Button.Model>(), {
 const emit = defineEmits<Button.Emits>()
 
 const themeClasses: Record<Button.Themes, string> = {
-  [Button.Themes.YELLOW]: ''
+  [Button.Themes.YELLOW]: '',
+  [Button.Themes.NO_BORDER]: 'ui-no-border'
 } as const
 
 const themeClass = computed<string>(() => themeClasses[props.theme])
@@ -44,8 +46,6 @@ $white: $WHITE;
 .ui-button {
   width: fit-content;
   border: none;
-  border-right: 0.6rem solid $black-2;
-  border-bottom: 0.6rem solid $black-2;
   background-color: $yellow;
   color: $black-2;
   font-family: Compaq;
@@ -60,6 +60,11 @@ $white: $WHITE;
 
   @include mobile-tablet {
     padding: 0.3rem 1.4rem;
+  }
+
+  &:not(.ui-no-border) {
+    border-right: 0.6rem solid $black-2;
+    border-bottom: 0.6rem solid $black-2;
   }
 
   &:not([disabled]) {

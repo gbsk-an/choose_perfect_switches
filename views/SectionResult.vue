@@ -5,17 +5,27 @@
       <div class="section-result__info-text">
         <p v-html="result.text" />
       </div>
-      <v-button text="Пройти заново" @click="backToStartPage" />
+      <div class="section-result__info-actions">
+        <v-button
+          text="Купить"
+          :theme="Button.Themes.NO_BORDER"
+          @click="togglePopupProducts({ status: true, products: result.products })"
+        />
+        <v-button :theme="Button.Themes.NO_BORDER" text="Пройти заново" @click="backToStartPage" />
+      </div>
     </div>
   </v-section>
 </template>
 
 <script setup lang="ts">
+import { Button } from '@/types/index.ts'
 import { storeToRefs } from 'pinia'
+import usePopupStore from '@/store/popups.ts'
 import useTestStore from '@/store/test.ts'
 
 const { result } = storeToRefs(useTestStore())
 const { clearTest } = useTestStore()
+const { togglePopupProducts } = usePopupStore()
 
 const backToStartPage = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -60,6 +70,24 @@ $black-2: $BLACK-SECOND;
     &-text {
       @include tablet-desktop {
         margin: 0 10rem;
+      }
+    }
+
+    &-actions {
+      display: flex;
+      gap: 2rem;
+
+      @include tablet-desktop {
+        flex-direction: row;
+      }
+
+      @include mobile {
+        width: 100%;
+        flex-direction: column;
+
+        &:deep(.ui-button) {
+          width: 100%;
+        }
       }
     }
   }

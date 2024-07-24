@@ -111,6 +111,10 @@ button {
   }
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .section-enter-active,
 .section-leave-active {
   transition: opacity 0.4s;
