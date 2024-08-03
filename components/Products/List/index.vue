@@ -1,7 +1,7 @@
 <template>
   <ul class="products-list">
     <template v-for="item in list" :key="item.name">
-      <ProductsItem v-bind="item" />
+      <ProductsListItem v-bind="item" />
     </template>
   </ul>
 </template>

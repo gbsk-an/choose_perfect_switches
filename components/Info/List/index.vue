@@ -21,25 +21,23 @@ defineProps<Props>()
 $white: $WHITE;
 $yellow: $YELLOW;
 $black-2: $BLACK-SECOND;
-$gold: $GOLD;
 
 .info-list {
   display: flex;
   flex-direction: column;
 
   @include tablet-desktop {
-    row-gap: 4rem;
+    row-gap: 6rem;
   }
 
   @include mobile {
-    row-gap: 2rem;
+    row-gap: 4rem;
   }
 
   &__title {
     font-family: Compaq;
     line-height: 150%;
     text-align: center;
-    text-shadow: $gold 0.15rem 0.25rem;
     @include adaptive-font(2.2, 1.6);
   }
 
@@ -48,7 +46,7 @@ $gold: $GOLD;
 
     @include tablet-desktop {
       flex-direction: row;
-      column-gap: 2rem;
+      justify-content: space-between;
     }
 
     @include mobile {

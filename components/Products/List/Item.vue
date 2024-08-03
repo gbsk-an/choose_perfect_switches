@@ -55,6 +55,7 @@ $black-2: $BLACK-SECOND;
       width: 100%;
       height: 100%;
       object-fit: contain;
+      pointer-events: none;
     }
   }
 

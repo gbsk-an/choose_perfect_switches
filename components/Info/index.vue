@@ -73,8 +73,38 @@ $black-2: $BLACK-SECOND;
   }
 
   &-text {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      left: 0;
+      margin-right: auto;
+      margin-left: auto;
+      background-image: url('@/assets/images/gif/dog.webp');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      content: '';
+    }
+
     @include tablet-desktop {
       margin: 0 10rem;
+
+      &::before {
+        top: -4rem;
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+
+    @include mobile {
+      &::before {
+        top: -3rem;
+        width: 4rem;
+        height: 4rem;
+      }
     }
   }
 
