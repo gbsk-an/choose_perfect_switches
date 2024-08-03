@@ -98,6 +98,31 @@ $blue-dark: $BLUE-DARK;
   justify-content: center;
   background-color: $blue-dark;
 
+  @include desktop {
+    &::before,
+    &::after {
+      position: absolute;
+      z-index: 5;
+      width: 6rem;
+      height: 6rem;
+      background-image: url('@/assets/images/gif/stars.gif');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      content: '';
+    }
+
+    &::before {
+      top: 10%;
+      left: 10%;
+    }
+
+    &::after {
+      top: 25%;
+      right: 10%;
+    }
+  }
+
   @include tablet-desktop {
     height: 100vh;
   }
