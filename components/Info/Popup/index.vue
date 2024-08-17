@@ -76,6 +76,7 @@ $yellow: $YELLOW;
     &-image {
       width: 100%;
       height: 30rem;
+      pointer-events: none;
 
       img {
         width: 100%;
