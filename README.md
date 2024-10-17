@@ -1,4 +1,6 @@
 # choose_perfect_switches
+<img src="https://github.com/user-attachments/assets/10f079d2-ead6-48ca-9882-dc9b2aa6938d" alt="Preview index page" />
+<img src="https://github.com/user-attachments/assets/e977b19e-a353-4c91-8a4c-8c0ef1f2ad5a" alt="Prveiew of test result" />
 
 ## Technical details
 
